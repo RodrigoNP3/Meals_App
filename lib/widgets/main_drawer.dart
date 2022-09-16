@@ -4,24 +4,24 @@ import '../screens/filters_screen.dart';
 
 class MainDrawer extends StatelessWidget {
 
-  Widget buildListTile(String title, IconData icon, Function tapHandler) {
+  // Widget buildListTile(String title, IconData icon, Function tapHandler) {
 
-    return ListTile(
-      leading: Icon(
-        icon,
-        size: 26,
-      ),
-      title: Text(
-        title,
-        style:const TextStyle(
-          fontFamily: 'RobotoCondensed',
-          fontSize: 24,
-          fontWeight: FontWeight.bold,
-        ),
-      ),
-      onTap: tapHandler(),
-    );
-  }
+  //   return ListTile(
+  //     leading: Icon(
+  //       icon,
+  //       size: 26,
+  //     ),
+  //     title: Text(
+  //       title,
+  //       style:const TextStyle(
+  //         fontFamily: 'RobotoCondensed',
+  //         fontSize: 24,
+  //         fontWeight: FontWeight.bold,
+  //       ),
+  //     ),
+  //     onTap: tapHandler(),
+  //   );
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -45,12 +45,44 @@ class MainDrawer extends StatelessWidget {
           const SizedBox(
             height: 20
           ),
-          buildListTile('Meals', Icons.restaurant, () {
-            Navigator.of(context).pushReplacementNamed('/');
-          }),
-          buildListTile('Filters', Icons.settings, () {
-            Navigator.of(context).pushReplacementNamed(FiltersScreen.routeName);
-          }),
+          ListTile(
+      leading:const  Icon(
+        Icons.restaurant,
+        size: 26,
+      ),
+      title:const Text(
+        'Meals',
+        style: TextStyle(
+          fontFamily: 'RobotoCondensed',
+          fontSize: 24,
+          fontWeight: FontWeight.bold,
+        ),
+      ),
+      onTap: () {
+        Navigator.of(context).pop;
+            Navigator.of(context).pushNamed('/');
+          },
+    ),
+      ListTile(
+      leading:const  Icon(
+        Icons.settings,
+        size: 26,
+      ),
+      title:const Text(
+        'Filters',
+        style: TextStyle(
+          fontFamily: 'RobotoCondensed',
+          fontSize: 24,
+          fontWeight: FontWeight.bold,
+        ),
+      ),
+      onTap:  () {
+            Navigator.of(context).pop;
+            Navigator.of(context).pushNamed(FiltersScreen.routeName);
+          },
+    ),
+
+
         ],
       ),
     );
